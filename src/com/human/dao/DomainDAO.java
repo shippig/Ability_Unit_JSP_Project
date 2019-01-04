@@ -43,9 +43,9 @@ public class DomainDAO
 			
 			int r = psmt.executeUpdate();
 			if(r != -1) 
-				System.out.println("["+domain.getDomain()+"] 진단영역 추가에 성공했습니다.");
+				System.out.println("["+domain.getDomain()+"]진단영역 추가에 성공했습니다.");
 			else
-				System.out.println("["+domain.getDomain()+"] 진단영역 추가에 실패했습니다.");
+				System.out.println("["+domain.getDomain()+"]진단영역 추가에 실패했습니다.");
 			
 		} 
 		catch (SQLException e)
@@ -76,7 +76,7 @@ public class DomainDAO
 			if(rs.next())
 			{
 				int dno = rs.getInt("진단번호");
-				System.out.println(domain + "진단영역의 진단번호를 얻었습니다.");
+				System.out.println("["+domain +"]진단영역의 진단번호를 얻었습니다.");
 				System.out.println("진단번호: " + dno);
 				
 				return dno;
@@ -92,7 +92,7 @@ public class DomainDAO
 			this.CloseDatabaseResource();
 		}
 		
-		System.out.println(domain + "진단영역의 진단번호 흭득에 실패했습니다.");
+		System.out.println("["+domain + "]진단영역의 진단번호 흭득에 실패했습니다.");
 		return -1;
 	}
 	

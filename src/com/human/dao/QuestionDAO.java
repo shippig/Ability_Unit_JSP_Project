@@ -59,7 +59,7 @@ public class QuestionDAO
 	public void appendQuestion(String question, int dno)
 	{
 		final String QUERY = 
-				"INSERT INTO 진단문항(문항번호, 진단문항, 진단번호) VALUES (문항번호_SEQ.NEXTVAL, ?, ?)";
+				"INSERT INTO 진단문항(문항번호, 진단문항, 진단번호, 진단점수) VALUES (문항번호_SEQ.NEXTVAL, ?, ?, 1)";
 		try
 		{
 			conn = this.getConnection();

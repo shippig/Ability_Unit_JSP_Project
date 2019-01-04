@@ -132,7 +132,7 @@ public class ApplicationCommand implements ECommand
 		//진단영역을 검색하려면 평가 테이블의 평가번호를 가져와야한다.
 		
 		//(1)
-		String domain = "애플리케이션 배포환경 구상하기";
+		String domain = "애플리케이션 배포환경 구성하기";
 		int dno = getDno(domain, session);
 		
 		String question = "1.1 애플리케이션 빌드와 배포를 위한 환경 구성 방안을 계획할 수 있다.";
@@ -187,8 +187,11 @@ public class ApplicationCommand implements ECommand
 	private int getDno(String domain, HttpSession session)
 	{
 		int sno = (int)session.getAttribute("sno");
+		System.out.println("["+domain+"]"+"진단영역의 SNO -> " + sno);
 		int eno = eDAO.getEvaluationEno(sno, domain);
+		System.out.println("["+domain+"]"+"진단영역의 ENO -> " + eno);
 		int dno = dDAO.getDomainDno(eno, domain);
+		System.out.println("["+domain+"]"+"진단영역의 DNO -> " + dno);
 		
 		return dno;
 	}
