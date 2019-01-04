@@ -34,7 +34,8 @@ public class ApplicationCommand implements ECommand
 		if(eDAO.isEvaluation(sno, "애플리케이션 배포 (2001020214_16v4)") == false)
 		{
 			this.setEvaluation(sno, session, request);
-			this.setDomain(session);	
+			this.setDomain(session);
+			this.setQeustion(session);
 		}
 		
 		//여기부터 수정
@@ -45,6 +46,24 @@ public class ApplicationCommand implements ECommand
 		int eno = (int)session.getAttribute("eno");
 		ArrayList<DomainDTO> domainList = dDAO.getDomainList(eno);
 		request.setAttribute("domainList", domainList);
+		
+		//진단문항을 가져오려면 진단번호로 검색해서 해당 진단번호의 모든 진단문항을 ArrayList에 담는다.
+		int dno = dDAO.getDomainDno(eno, "애플리케이션 배포환경 구성하기");
+		ArrayList<String> questionList1 = qDAO.getQuestions(dno);
+		
+		dno = dDAO.getDomainDno(eno, "애플리케이션 소스 검증하기");
+		ArrayList<String> questionList2 = qDAO.getQuestions(dno);
+		
+		dno = dDAO.getDomainDno(eno, "애플리케이션 빌드하기");
+		ArrayList<String> questionList3 = qDAO.getQuestions(dno);
+		
+		dno = dDAO.getDomainDno(eno, "애플리케이션 배포하기");
+		ArrayList<String> questionList4 = qDAO.getQuestions(dno);
+		
+		request.setAttribute("questionList1", questionList1);
+		request.setAttribute("questionList2", questionList2);
+		request.setAttribute("questionList3", questionList3);
+		request.setAttribute("questionList4", questionList4);
 	}
 
 	@Override

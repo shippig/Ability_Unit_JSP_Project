@@ -26,6 +26,35 @@ public class QuestionDAO
 		return instance;
 	}
 	
+	//DNO를 넘겨받아 해당 DNO의 진단문항을 String 배열로 넘겨줌
+	public ArrayList<String> getQuestions(int dno)
+	{
+		final String QUERY = "SELECT 진단문항 FROM 진단문항 WHERE 진단번호 = ?";
+		ArrayList<String> questions = new ArrayList<>();
+		try
+		{
+			conn = this.getConnection();
+			psmt = conn.prepareStatement(QUERY);
+			psmt.setInt(1, dno);
+			rs = psmt.executeQuery();
+			
+			while(rs.next())
+			{
+				questions.add(rs.getString("진단문항"));
+			}
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			this.CloseDatabaseResource();
+		}
+		
+		return questions;	
+	}
+	
 	//해당 진단영역의 진단 문항을 추가하는 메서드
 	public void appendQuestion(String question, int dno)
 	{
