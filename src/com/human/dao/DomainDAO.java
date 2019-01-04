@@ -58,6 +58,45 @@ public class DomainDAO
 		}
 	}
 	
+	//진단 번호를 가져오려면 평가번호와, 진단 영역을 가져와야 한다.
+	public int getDomainDno(int eno, String domain)
+	{
+		final String QUERY = "SELECT 진단번호 FROM 진단영역 WHERE 평가번호 = ? AND 진단영역 = ?";
+		
+		try
+		{
+			conn = this.getConnection();
+			psmt = conn.prepareStatement(QUERY);
+			
+			psmt.setInt(1, eno);
+			psmt.setString(2, domain);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next())
+			{
+				int dno = rs.getInt("진단번호");
+				System.out.println(domain + "진단영역의 진단번호를 얻었습니다.");
+				System.out.println("진단번호: " + dno);
+				
+				return dno;
+				
+			}
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			this.CloseDatabaseResource();
+		}
+		
+		System.out.println(domain + "진단영역의 진단번호 흭득에 실패했습니다.");
+		return -1;
+	}
+	
+	
 	//평가번호로 검색해서 해당 평가번호의 모든 진단영역을 ArrayList에 담는다.
 	public ArrayList<DomainDTO> getDomainList(int eno)
 	{

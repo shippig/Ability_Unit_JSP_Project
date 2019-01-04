@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import com.human.dao.DomainDAO;
 import com.human.dao.EvaluationDAO;
+import com.human.dao.QuestionDAO;
 import com.human.dao.StudentDAO;
 import com.human.dto.DomainDTO;
 import com.human.dto.EvaluationDTO;
@@ -19,6 +20,7 @@ public class ApplicationCommand implements ECommand
 	EvaluationDAO eDAO = EvaluationDAO.getInstance();
 	StudentDAO sDAO = StudentDAO.getInstance();
 	DomainDAO dDAO = DomainDAO.getInstance();
+	QuestionDAO qDAO = QuestionDAO.getInstance();
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -100,4 +102,77 @@ public class ApplicationCommand implements ECommand
 			dDAO.appendDomain(addDomain);
 		}
 	}
+
+	@Override
+	public void setQeustion(HttpSession session)
+	{
+		//평가번호의 진단영역(애플리케이션 배포환경 구상하기)를 검색해서 
+		//해당하는 진단영역에 진단문항을 추가한다.
+		
+		//진단영역을 검색해서 해당하는 진단영역의 진단번호를 가져온다.
+		//진단영역을 검색하려면 평가 테이블의 평가번호를 가져와야한다.
+		
+		//(1)
+		String domain = "애플리케이션 배포환경 구상하기";
+		int dno = getDno(domain, session);
+		
+		String question = "1.1 애플리케이션 빌드와 배포를 위한 환경 구성 방안을 계획할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "1.2 애플리케이션 배포를 위한 도구와 시스템을 결정할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "1.3 결정한 애플리케이션 배포 환경을 위한 도구와 시스템을 설치할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "1.4 설치한 시스템과 도구 운영을 위해 상세 구성 및 설정을 할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+	
+		//(2)
+		domain = "애플리케이션 소스 검증하기";
+		dno = getDno(domain, session);
+		
+		question = "2.1 정상적으로 작동하는 소프트웨어 빌드를 위해 형상관리 서버로부터 소스코드를 체크아웃 할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "2.2 소스코드 검증 도구를 활용하여 애플리케이션에서 사용한 라이브러리, 소스, 로직 등의 오류가 있는지 여부를 검증할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "2.3 소스코드의 환경 설정, 운영 환경 정보, 대상 시스템 정보 등에 오류가 있는지 확인 할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		
+		//(3)
+		domain = "애플리케이션 빌드하기";
+		dno = getDno(domain, session);
+		
+		question = "3.1 애플리케이션 소스코드 검증 결과 문제가 없는 경우 해당 소스코드를 빌드 시스템으로 이관할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "3.2 애플리케이션 빌드 절차에 따른 빌드 스크립트를 작성할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "3.3 작성한 빌드 스크립트 또는 도구를 활용하여 애플리케이션 빌드를 실행 할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "3.4 애플리케이션 빌드 실행 결과를 확인하여 정상적으로 완료되었는지 여부를 확인할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "3.5 애플리케이션 빌드 실패 시 문제 내용과 원인을 파악하여 개발자에게 설명할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		
+		//(4)
+		domain = "애플리케이션 배포하기";
+		dno = getDno(domain, session);
+		
+		question = "4.1 애플리케이션 실행 환경에 대한 정보를 확인할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "4.2 애플리케이션 배포 절차에 따라 운영환경에 적용할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "4.3 애플리케이션 배포 후 정상적으로 작동하는지 여부를 확인할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+		question = "4.4 애플리케이션 배포 결과 문제가 발생했을 경우 적용 내용을 이전 상태로 복원할 수 있다.";
+		qDAO.appendQuestion(question, dno);
+	}
+	
+	private int getDno(String domain, HttpSession session)
+	{
+		int sno = (int)session.getAttribute("sno");
+		int eno = eDAO.getEvaluationEno(sno, domain);
+		int dno = dDAO.getDomainDno(eno, domain);
+		
+		return dno;
+	}
+	
+
 }

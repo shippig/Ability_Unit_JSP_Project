@@ -16,12 +16,12 @@ public class RegisterCommand implements Command
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// 아이디 체크가 이미 있는지 체크한다.
+		// 아이디가 이미 있는지 체크한다.
 		// 아이디가 없다면 데이터베이스에 데이터를 추가한다.
 		
-		//name, id, pwd
 		request.setCharacterEncoding("UTF-8");
 		
+		// 이름, 아이디, 비밀번호
 		String name = request.getParameter("name");
 		String id = request.getParameter("id"); 
 		String pwd = request.getParameter("pwd");

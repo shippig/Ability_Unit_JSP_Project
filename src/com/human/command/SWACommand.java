@@ -63,5 +63,12 @@ public class SWACommand implements ECommand
 	{
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void setQeustion(HttpSession session)
+	{
+		// TODO Auto-generated method stub
+		
 	}	
 }

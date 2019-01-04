@@ -12,4 +12,5 @@ public interface ECommand
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 	public void setEvaluation(int sno, HttpSession session, HttpServletRequest request);
 	public void setDomain(HttpSession session);
+	public void setQeustion(HttpSession session);
 }
