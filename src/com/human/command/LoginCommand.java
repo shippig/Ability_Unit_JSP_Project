@@ -23,6 +23,11 @@ public class LoginCommand implements Command
 		//입력한 아이디와 패스워드를 가져와서 해당 회원이 맞는지 체크하고 로그인
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("id", id);
+	
+		
 		flag = sDAO.login(id, pwd);
 	}
 	
