@@ -2,13 +2,17 @@ package com.human.dto;
 
 public class DomainDTO
 {
-	private String domain; // 진단 영역
-	private int eno;
+	// 진단영역, 진단번호, 평가번호
+	private String domain;
+	private int dno;
+	private int eno; 
 	
 	public DomainDTO() {}
-	public DomainDTO(String domain)
+	public DomainDTO(String domain, int dno, int eno)
 	{
 		this.domain = domain;
+		this.dno = dno;
+		this.eno = eno;
 	}
 	
 	public String getDomain()
@@ -28,13 +32,17 @@ public class DomainDTO
 	{
 		this.eno = eno;
 	}
-	
+	public int getDno()
+	{
+		return dno;
+	}
+	public void setDno(int dno)
+	{
+		this.dno = dno;
+	}
 	@Override
 	public String toString()
 	{
 		return "진단영역: "+this.domain+"평가번호: "+this.eno;
 	}
-	
-	
-	
 }

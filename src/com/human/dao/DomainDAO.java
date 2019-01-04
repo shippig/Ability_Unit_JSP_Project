@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -55,6 +56,41 @@ public class DomainDAO
 		{
 			this.CloseDatabaseResource();
 		}
+	}
+	
+	//평가번호로 검색해서 해당 평가번호의 모든 진단영역을 ArrayList에 담는다.
+	public ArrayList<DomainDTO> getDomainList(int eno)
+	{
+		final String QUERY = "SELECT * FROM 진단영역 WHERE 평가번호 = ? ORDER BY 진단번호 ASC";
+		ArrayList<DomainDTO> list = new ArrayList<DomainDTO>();
+		
+		try
+		{
+			conn = this.getConnection();
+			psmt = conn.prepareStatement(QUERY);
+			psmt.setInt(1, eno);
+			rs = psmt.executeQuery();
+			
+			while(rs.next())
+			{
+				DomainDTO domain = new DomainDTO();
+				domain.setDomain(rs.getString("진단영역"));
+				domain.setDno(rs.getInt("진단번호"));
+				domain.setEno(rs.getInt("평가번호"));
+				
+				list.add(domain);
+			}
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			this.CloseDatabaseResource();
+		}
+		
+		return list;
 	}
 	
 	// 평가번호와 진단영역으로 검색해서 해당하는 진단영역이 있는지 체크한다.

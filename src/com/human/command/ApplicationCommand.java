@@ -1,12 +1,12 @@
 package com.human.command;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import com.human.dao.DomainDAO;
 import com.human.dao.EvaluationDAO;
@@ -31,17 +31,22 @@ public class ApplicationCommand implements ECommand
 		
 		if(eDAO.isEvaluation(sno, "애플리케이션 배포 (2001020214_16v4)") == false)
 		{
-			this.setEvaluation(sno, session);
+			this.setEvaluation(sno, session, request);
 			this.setDomain(session);	
 		}
 		
 		//여기부터 수정
 		EvaluationDTO evaluation = eDAO.selectFromAbilityUnit(sno, "애플리케이션 배포 (2001020214_16v4)");	
-		request.setAttribute("evaluation", evaluation);	
+		request.setAttribute("evaluation", evaluation);
+		
+		//진단영역을 가져오려면 평가번호로 검색해서 해당 평가번호의 모든 진단영역을 ArrayList에 담는다.
+		int eno = (int)session.getAttribute("eno");
+		ArrayList<DomainDTO> domainList = dDAO.getDomainList(eno);
+		request.setAttribute("domainList", domainList);
 	}
 
 	@Override
-	public void setEvaluation(int sno, HttpSession session)
+	public void setEvaluation(int sno, HttpSession session, HttpServletRequest request)
 	{
 		EvaluationDTO evaluation = new EvaluationDTO();
 		evaluation.setInstitute("휴먼교육센터");
@@ -58,9 +63,6 @@ public class ApplicationCommand implements ECommand
 		//해당 평가지의 평가번호를 얻어와서 세션에 담는다.
 		int eno = eDAO.getEvaluationEno(sno, "애플리케이션 배포 (2001020214_16v4)");
 		session.setAttribute("eno", eno);
-		
-		//여기부터 수정 (진단 영역을 ArrayList에 담아서 세션에 담는 로직 추가해야함.)
-		//진단영역을 가져오려면 평가번호와
 	}
 
 	@Override

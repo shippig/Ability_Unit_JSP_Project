@@ -17,7 +17,7 @@ public class SWACommand implements ECommand
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		//해당 학생의 아이디로 평가지를 하나 생성한다.
+				//해당 학생의 아이디로 평가지를 하나 생성한다.
 				request.setCharacterEncoding("UTF-8");
 				
 				EvaluationDAO eDAO = EvaluationDAO.getInstance();
@@ -47,22 +47,21 @@ public class SWACommand implements ECommand
 					eDAO.addEvaluation(evaluation);
 					
 				}
-				EvaluationDTO attribute = eDAO.selectFromAbilityUnit("스마트 웹&앱 구현");	
-				request.setAttribute("attribute", attribute);	
+				//EvaluationDTO attribute = eDAO.selectFromAbilityUnit("스마트 웹&앱 구현");	
+				//request.setAttribute("attribute", attribute);	
 	}
 
 	@Override
-	public void setEvaluation(int sno)
+	public void setEvaluation(int sno, HttpSession session, HttpServletRequest request)
 	{
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void setDomain()
+	public void setDomain(HttpSession session)
 	{
 		// TODO Auto-generated method stub
 		
-	}
-	
+	}	
 }

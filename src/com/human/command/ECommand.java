@@ -10,6 +10,6 @@ import javax.servlet.http.HttpSession;
 public interface ECommand
 {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
-	public void setEvaluation(int sno, HttpSession session);
+	public void setEvaluation(int sno, HttpSession session, HttpServletRequest request);
 	public void setDomain(HttpSession session);
 }
