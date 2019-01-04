@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#wrap{
+	width : 950px;
+	margin : 0 auto;
+}
+
+#title{
+	font-size : 25px;
+}
+
+table{
+    width : 100%;
+    line-height : 27px;
+    
+}
+
+#cul{
+    width: 140px;
+    
+}
+
+#cul2{
+    width: 100px;
+}
+
+
