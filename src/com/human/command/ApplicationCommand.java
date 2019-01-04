@@ -64,6 +64,11 @@ public class ApplicationCommand implements ECommand
 		request.setAttribute("questionList2", questionList2);
 		request.setAttribute("questionList3", questionList3);
 		request.setAttribute("questionList4", questionList4);
+		
+		for(String data : questionList1)
+		{
+			System.out.println(data);
+		}
 	}
 
 	@Override
@@ -188,7 +193,7 @@ public class ApplicationCommand implements ECommand
 	{
 		int sno = (int)session.getAttribute("sno");
 		System.out.println("["+domain+"]"+"진단영역의 SNO -> " + sno);
-		int eno = eDAO.getEvaluationEno(sno, domain);
+		int eno = eDAO.getEvaluationEno(sno, "애플리케이션 배포 (2001020214_16v4)");
 		System.out.println("["+domain+"]"+"진단영역의 ENO -> " + eno);
 		int dno = dDAO.getDomainDno(eno, domain);
 		System.out.println("["+domain+"]"+"진단영역의 DNO -> " + dno);

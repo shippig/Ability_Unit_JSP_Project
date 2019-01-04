@@ -69,9 +69,9 @@ public class QuestionDAO
 			
 			int r = psmt.executeUpdate();
 			if(r != -1)
-				System.out.println("진단 문항 추가에 성공했습니다.");
+				System.out.println("["+question+"]진단 문항 추가에 성공했습니다.");
 			else
-				System.out.println("진단 문항 추가에 실패했습니다.");
+				System.out.println("["+question+"]진단 문항 추가에 실패했습니다.");
 		} 
 		catch (SQLException e)
 		{

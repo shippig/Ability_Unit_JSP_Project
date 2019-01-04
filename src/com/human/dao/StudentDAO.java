@@ -78,8 +78,8 @@ public class StudentDAO
 			psmt.setString(3, student.getPassword());
 			int r = psmt.executeUpdate();  
 			
-			if(r != 0) System.out.println(student.getName() + "학생 추가 완료");
-			else System.out.println(student.getName() + "학생 추가 실패");
+			if(r != 0) System.out.println("["+student.getName() + "]학생 추가 완료");
+			else System.out.println("["+student.getName() + "]학생 추가 실패");
 		} 
 		catch (SQLException e)
 		{

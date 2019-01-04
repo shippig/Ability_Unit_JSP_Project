@@ -38,7 +38,7 @@ public class EvaluationDAO
 		
 		try
 		{
-			System.out.println(sno + "학생의" + " 검색 키워드: " + abilityUnit);
+			System.out.println(sno + "번 학생의" + " 검색 키워드: " + abilityUnit);
 			conn = this.getConnection();
 			psmt = conn.prepareStatement(QUERY);
 			

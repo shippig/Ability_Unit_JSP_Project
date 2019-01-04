@@ -64,137 +64,16 @@
                 <th>우수</th>
                 <th>매우<br>우수</th>
             </tr>
+ 
+            
             <tr>
                 <th rowspan="4"></th>
-                <th></th>
+               	<th></th>
                 <th><input type="radio" name="1"></th>
                 <th><input type="radio" name="1"></th>
                 <th><input type="radio" name="1"></th>
                 <th><input type="radio" name="1"></th>
                 <th><input type="radio" name="1"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th rowspan="3"></th>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th rowspan="5"></th>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th rowspan="4"></th>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-            </tr>
-            <tr>
-                <th></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
-                <th><input type="radio"></th>
             </tr>
         </table>
         	<br>
