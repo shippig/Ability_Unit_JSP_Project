@@ -117,6 +117,7 @@ public class FrontController extends HttpServlet {
 						System.out.println("학생 아이디: "+"["+id+"]");
 						String name = sDAO.getStudentName(id);
 						session.setAttribute("name", name);
+						System.out.println("["+name+"]을 request 객체에 담았습니다.");
 						
 						path = "Evaluation/index.jsp";
 					}

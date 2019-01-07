@@ -43,7 +43,7 @@ public class ApplicationCommand implements ECommand
 		request.setAttribute("evaluation", evaluation);
 		
 		//진단영역을 가져오려면 평가번호로 검색해서 해당 평가번호의 모든 진단영역을 ArrayList에 담는다.
-		int eno = (int)session.getAttribute("eno");
+		int eno = (int)session.getAttribute("aeno");
 		ArrayList<DomainDTO> domainList = dDAO.getDomainList(eno);
 		request.setAttribute("domainList", domainList);
 		
@@ -63,7 +63,10 @@ public class ApplicationCommand implements ECommand
 		request.setAttribute("questionList1", questionList1);
 		request.setAttribute("questionList2", questionList2);
 		request.setAttribute("questionList3", questionList3);
-		request.setAttribute("questionList4", questionList4);	
+		request.setAttribute("questionList4", questionList4);
+		
+		String name = (String)session.getAttribute("name");
+		request.setAttribute("name", name);
 	}
 
 	@Override
@@ -83,7 +86,7 @@ public class ApplicationCommand implements ECommand
 		
 		//해당 평가지의 평가번호를 얻어와서 세션에 담는다.
 		int eno = eDAO.getEvaluationEno(sno, "애플리케이션 배포 (2001020214_16v4)");
-		session.setAttribute("eno", eno);
+		session.setAttribute("aeno", eno);
 	}
 
 	@Override
@@ -92,7 +95,7 @@ public class ApplicationCommand implements ECommand
 		DomainDTO domain = new DomainDTO();
 		
 		// 세션에서 평가번호를 가져와서 담는다.
-		int eno = (int)session.getAttribute("eno");
+		int eno = (int)session.getAttribute("aeno");
 		
 		// 애플리케이션 배포 (2001020214_16v4) 능력단위에 진단영역들을 추가한다.
 		domain.setEno(eno);

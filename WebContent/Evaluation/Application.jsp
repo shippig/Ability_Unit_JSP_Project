@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>사후평가리스트</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-
 <style>
 #wrap {width:76%; margin:0 auto;}
 table td{text-align:center}
@@ -43,7 +42,7 @@ table td{text-align:center}
                 <th class="culumn">과정명</th>
                 <td>${evaluation.course } </td>
                 <th class="culumn">학생명</th>
-                <td style="width: 130px;">${session.getAttribute("name") } </td>
+                <td style="width: 130px;">${name } </td>
             </tr>
             <tr>
                 <th class="culumn">교과목</th>
@@ -85,21 +84,24 @@ table td{text-align:center}
 	            		<tr>
 	            			<th rowspan="${questionList1.size() }" class="title">${domain.getDomain() }</th> 
 	            			<th class="question">${questionList1.get(status.index) }</th>
+
 	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            			<%--name 1.1부분을 변수로 수정해야함. --%>
-	            				<th class="score"><input type="radio" name="1.1"></th>
+	            			<c:set var="index" value="1"></c:set>
+	            				<th class="score"><input type="radio" name="${index }"></th>
 	            			</c:forEach>
+	            			<c:set var="index" value="${index + 1 }"></c:set>
 	            		</tr>
             		</c:when>
             		<%-- 1, 2, 3일 때에는 --%>
             		<c:otherwise>
             			<tr>
             				<th class="question">${questionList1.get(status.index) }</th>
+            				<c:set var="index" value="${index + 1 }"></c:set>
             				<c:forEach var="j" begin="1" end="5" step="1">
-            				<%--name 1.2부분을 변수로 수정해야함. --%>
-            					<th class="score"><input type="radio" name="1.2"></th>
+            					<th class="score"><input type="radio" name="${index }"></th>
             				</c:forEach>
             			</tr>
+            			<c:set var="index" value="${index + 1 }"></c:set>
             		</c:otherwise>
            		</c:choose>
             	</c:forEach>
@@ -114,21 +116,24 @@ table td{text-align:center}
 	            		<tr>
 	            			<th rowspan="${questionList2.size() }" class="title">${domain.getDomain() }</th> 
 	            			<th class="question">${questionList2.get(status.index) }</th>
+	            			
+	            			<c:set var="index" value="${index + 1 }"></c:set>
 	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            			<%--name 1.1부분을 변수로 수정해야함. --%>
-	            				<th class="score"><input type="radio" name="1.1"></th>
+	            				<th class="score"><input type="radio" name="${index }"></th>
 	            			</c:forEach>
 	            		</tr>
+	            			<c:set var="index" value="${index + 1 }"></c:set>
             		</c:when>
             		<%-- 1, 2, 3일 때에는 --%>
             		<c:otherwise>
             			<tr>
             				<th class="question">${questionList2.get(status.index) }</th>
+            				<c:set var="index" value="${index + 1 }"></c:set>
             				<c:forEach var="j" begin="1" end="5" step="1">
-            				<%--name 1.2부분을 변수로 수정해야함. --%>
-            					<th class="score"><input type="radio" name="1.2"></th>
+            					<th class="score"><input type="radio" name="${index }"></th>
             				</c:forEach>
             			</tr>
+            			<c:set var="index" value="${index + 1 }"></c:set>
             		</c:otherwise>
            		</c:choose>
             	</c:forEach>
@@ -143,21 +148,23 @@ table td{text-align:center}
 	            		<tr>
 	            			<th rowspan="${questionList3.size() }" class="title">${domain.getDomain() }</th> 
 	            			<th class="question">${questionList3.get(status.index) }</th>
+	            			<c:set var="index" value="${index + 1 }"></c:set>
 	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            			<%--name 1.1부분을 변수로 수정해야함. --%>
-	            				<th class="score"><input type="radio" name="1.1"></th>
+	            				<th class="score"><input type="radio" name="${index }"></th>
 	            			</c:forEach>
 	            		</tr>
+	            		<c:set var="index" value="${index + 1 }"></c:set>
             		</c:when>
             		<%-- 1, 2, 3일 때에는 --%>
             		<c:otherwise>
             			<tr>
             				<th class="question">${questionList3.get(status.index) }</th>
+            				<c:set var="index" value="${index + 1 }"></c:set>
             				<c:forEach var="j" begin="1" end="5" step="1">
-            				<%--name 1.2부분을 변수로 수정해야함. --%>
-            					<th class="score"><input type="radio" name="1.2"></th>
+            					<th class="score"><input type="radio" name="${index }"></th>
             				</c:forEach>
             			</tr>
+            			<c:set var="index" value="${index + 1 }"></c:set>
             		</c:otherwise>
            		</c:choose>
             	</c:forEach>
@@ -173,21 +180,23 @@ table td{text-align:center}
 	            		<tr>
 	            			<th rowspan="${questionList4.size() }" class="title">${domain.getDomain() }</th> 
 	            			<th class="question">${questionList4.get(status.index) }</th>
+	            			<c:set var="index" value="${index + 1 }"></c:set>
 	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            			<%--name 1.1부분을 변수로 수정해야함. --%>
-	            				<th class="score"><input type="radio" name="1.1"></th>
+	            				<th class="score"><input type="radio" name="${index }"></th>
 	            			</c:forEach>
 	            		</tr>
+	            		<c:set var="index" value="${index + 1 }"></c:set>
             		</c:when>
             		<%-- 1, 2, 3일 때에는 --%>
             		<c:otherwise>
             			<tr>
             				<th class="question">${questionList4.get(status.index) }</th>
+            				<c:set var="index" value="${index + 1 }"></c:set>
             				<c:forEach var="j" begin="1" end="5" step="1">
-            				<%--name 1.2부분을 변수로 수정해야함. --%>
-            					<th class="score"><input type="radio" name="1.2"></th>
+            					<th class="score"><input type="radio" name="${index }"></th>
             				</c:forEach>
             			</tr>
+            			<c:set var="index" value="${index + 1 }"></c:set>
             		</c:otherwise>
            		</c:choose>
             	</c:forEach>

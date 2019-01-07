@@ -56,6 +56,9 @@ public class SWACommand implements ECommand
 		
 		request.setAttribute("questionList1", questionList1);
 		request.setAttribute("questionList2", questionList2);
+		
+		String name = (String)session.getAttribute("name");
+		request.setAttribute("name", name);
 	}
 
 	@Override
