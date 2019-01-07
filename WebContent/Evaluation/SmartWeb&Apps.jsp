@@ -13,38 +13,38 @@
 		<form action="SmartWeb&Apps.do" method="post"></form>
         <table cellspacing=0 border=1>
             <tr>
-                <th id="title">(사후) 학습자 자가 진단 평가</th>
+                <th id="title">(사후) 학습자 자가 진단 평가</th> 
             </tr>
         </table>
         <br>
         <table cellspacing=0 border=1>
             <tr>
                 <th id="cul">교육기관</th>
-                <th style="width: 170px;"> </th>
+                <th style="width: 170px;">${evaluation.institute }</th>
                 <th id="cul">교육기간</th>
-                <th colspan="3"> </th>
+                <th colspan="3">${evaluation.time }</th>
             </tr>
             <tr>
                 <th id="cul">평가일시</th>
-                <th> </th>
+                <th>${evaluation.date }</th>
                 <th id="cul">과정명</th>
-                <th> </th>
+                <th>${evaluation.course } </th>
                 <th id="cul">학생명</th>
-                <th style="width: 130px;"> </th>
+                <th style="width: 130px;">${session.getAttribute(name) }</th>
             </tr>
             <tr>
                 <th id="cul">교과목</th>
-                <th colspan="3"> </th>
+                <th colspan="3">${evaluation.subject }</th>
                 <th id="cul">평가자</th>
-                <th>박 수 민 (인)</th>
+                <th>${evaluation.appraiser }</th>
             </tr>
             <tr>
                 <th id="cul">능력단위명</th>
-                <th colspan="5"> </th>
+                <th colspan="5">${evaluation.abilityUnit }</th>
             </tr>
             <tr>
                 <th id="cul">능력단위요소</th>
-                <th colspan="5"> </th>
+                <th colspan="5">${evaluation.element } </th>
             </tr>
         </table>
         <br>

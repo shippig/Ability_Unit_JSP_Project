@@ -33,6 +33,37 @@ public class StudentDAO
 		
 	}
 	
+	public String getStudentName(String id)
+	{
+		final String QUERY = "SELECT 학생이름, 학생번호 FROM 학생 WHERE 학생ID = ?";
+		String name = "";
+		
+		try
+		{
+			conn = this.getConnection();
+			psmt = conn.prepareStatement(QUERY);
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			if(rs.next())
+			{
+				name = rs.getString("학생이름"); 
+				System.out.println(rs.getInt("학생번호")+"번 학생의 이름은: ["+ name+"]입니다.");
+				return name;
+			}
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			this.CloseDatabaseResource();
+		}
+		System.out.println("["+id + "]아이디의 학생이름 검색에 실패했습니다.");
+		return null;
+	}
+	
 	public int getStduentNo(String id)
 	{
 		final String QUERY = "SELECT 학생번호 FROM 학생 WHERE 학생ID = ?";

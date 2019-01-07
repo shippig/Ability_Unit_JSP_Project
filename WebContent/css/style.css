@@ -1,27 +1,29 @@
 @charset "UTF-8";
 
-#wrap{
-	width : 950px;
-	margin : 0 auto;
+
+
+.cul2{
+   width:85px;
 }
 
-#title{
-	font-size : 25px;
+.bottom{
+	text-align:left;
+	border-bottom:dotted 1px;
 }
 
-table{
-    width : 100%;
-    line-height : 27px;
-    
+.bottom2{
+	text-align:left;
 }
 
-#cul{
-    width: 140px;
-    
+.bottom3{
+	border-bottom:dotted 1px;
 }
 
-#cul2{
-    width: 100px;
+.bt{
+	padding:10px;	
 }
+
+
+
 
 

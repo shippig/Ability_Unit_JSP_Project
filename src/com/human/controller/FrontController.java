@@ -79,7 +79,7 @@ public class FrontController extends HttpServlet {
 				{	
 					ECommand = new SWACommand();
 					ECommand.execute(request, response);
-					path = "Evaluation/Application.jsp";
+					path = "Evaluation/SmartWeb&Apps.jsp";
 				}
 				else if(command.equals("/login.do"))
 				{
@@ -107,12 +107,16 @@ public class FrontController extends HttpServlet {
 					
 					if(LCommand.getLoginFlag())
 					{
-						//아이디를 가져와서 학생번호를 얻어내고 세션에 담음
+						//아이디를 가져와서 학생번호와 이름을 얻어내고 세션에 담음
 						HttpSession session = request.getSession();
 						String id = (String) session.getAttribute("id");
 						StudentDAO sDAO = StudentDAO.getInstance();
 						int sno = sDAO.getStduentNo(id);
 						session.setAttribute("sno", sno);
+						
+						System.out.println("학생 아이디: "+"["+id+"]");
+						String name = sDAO.getStudentName(id);
+						session.setAttribute("name", name);
 						
 						path = "Evaluation/index.jsp";
 					}

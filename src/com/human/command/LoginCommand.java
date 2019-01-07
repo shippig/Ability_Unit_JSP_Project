@@ -11,7 +11,6 @@ import com.human.dao.StudentDAO;
 
 public class LoginCommand implements Command
 {
-	
 	private boolean flag = false;
 	
 	@Override
@@ -26,8 +25,6 @@ public class LoginCommand implements Command
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("id", id);
-	
-		
 		flag = sDAO.login(id, pwd);
 	}
 	

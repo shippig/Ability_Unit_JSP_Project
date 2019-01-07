@@ -8,78 +8,103 @@
 <title>사후평가리스트</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <style>
+#wrap {width:75%; margin:0 auto;}
+table td{text-align:center}
+.evaluation_title, .evaluation_cont, .evaluation_domain{width:100%; border-spacing: 0px 0px;}
+.evaluation_title tr #title{font-size:25px; background-color:#D5D5D5}
+.evaluation_cont .culumn {background-color:#D5D5D5;}
+.evaluation_domain .domain, .diag {width: 68px; border-bottom:solid 1px;}
+.evaluation_domain .question, .lastQuestion{text-align:left; height:50px;}
+.evaluation_domain .question{border-bottom:dashed 1px;}
+.evaluation_domain .score{border-bottom:dashed 1px;}
+.evaluation_domain .title{padding-top:30px; padding-bottom:30px;}
 </style>
 </head>
 <body>
     <div id="wrap" align="center">
-    <form method="post" action="application.do">
-        <table cellspacing=0 border=1>
+    <!-- Evaluation Title(평가지 제목) -->
+        <table border='1' class="evaluation_title">
             <tr>
                 <th id="title">(사후) 학습자 자가 진단 평가</th>
             </tr>
+        </table><br>
+        <!-- Evaluation Contents(평가지 내용) -->
+        <table border='1' class="evaluation_cont">
+            <tr>
+                <th class="culumn">교육기관</th>
+                <td style="width: 170px;">${evaluation.institute } </td>
+                <th class="culumn">교육기간</th>
+                <td colspan="3">${evaluation.time } </td>
+            </tr>
+            <tr>
+                <th class="culumn">평가일시</th>
+                <td>${evaluation.date } </td>
+                <th class="culumn">과정명</th>
+                <td>${evaluation.course } </td>
+                <th class="culumn">학생명</th>
+                <td style="width: 130px;">${session.getAttribute("name") } </td>
+            </tr>
+            <tr>
+                <th class="culumn">교과목</th>
+                <td colspan="3">${evaluation.subject } </td>
+                <th class="culumn">평가자</th>
+                <td>${evaluation.appraiser }</td>
+            </tr>
+            <tr>
+                <th class="culumn">능력단위명</th>
+                <td colspan="5">${evaluation.abilityUnit }</td>
+            </tr>
+            <tr>
+                <th class="culumn">능력단위요소</th>
+                <td colspan="5">${evaluation.element }</td>
+            </tr>
+        </table><br>
+        
+        <!-- Evaluation Domain(평가지 진단영역)-->
+        <table border='1' class="evaluation_domain">
+            <tr>
+                <th class="domain">진단영역</th>
+                <th class="diag" style="width:58%;">진 단 문 항</th>
+                <th class="diag">매우<br>미흡</th>
+                <th class="diag">미흡</th>
+                <th class="diag">보통</th>
+                <th class="diag">우수</th>
+                <th class="diag">매우<br>우수</th>
+            </tr>
+            <tr>
+                <th rowspan="4" class="title">애플리 케이션 배포환경 구성하기</th>
+                <th class="question">1.1 애플리케이션 빌드와 배포를 위한 환경 구성 방안을 계획할 수 있다.</th>
+                <th class="score"><input type="radio" name="1.1"></th>
+                <th class="score"><input type="radio" name="1.1"></th>
+                <th class="score"><input type="radio" name="1.1"></th>
+                <th class="score"><input type="radio" name="1.1"></th>
+                <th class="score"><input type="radio" name="1.1"></th>
+            </tr>
+            <tr>
+                <th class="question">1.2 애플리케이션 배포를 위한 도구와 시스템을 결정할 수 있다.</th>
+                <th class="score"><input type="radio" name="1.2"></th>
+                <th class="score"><input type="radio" name="1.2"></th>
+                <th class="score"><input type="radio" name="1.2"></th>
+                <th class="score"><input type="radio" name="1.2"></th>
+                <th class="score"><input type="radio" name="1.2"></th>
+            </tr>
+            <tr>
+                <th class="question">1.3 결정한 애플리케이션 배포 한경을 위한 도구와 시스템을 설치할 수 있다.</th>
+                <th class="score"><input type="radio" name="1.3"></th>
+                <th class="score"><input type="radio" name="1.3"></th>
+                <th class="score"><input type="radio" name="1.3"></th>
+                <th class="score"><input type="radio" name="1.3"></th>
+                <th class="score"><input type="radio" name="1.3"></th>
+            </tr>
+            <tr>
+                <th class="lastQuestion">1.4 설치한 시스템과 도구 운영을 위해 상세 구성 및 설정을 할 수 있다.</th>
+                <th class="score"><input type="radio" name="1.4"></th>
+                <th class="score"><input type="radio" name="1.4"></th>
+                <th class="score"><input type="radio" name="1.4"></th>
+                <th class="score"><input type="radio" name="1.4"></th>
+                <th class="score"><input type="radio" name="1.4"></th>
+            </tr>
         </table>
-        <br>
-        <table cellspacing=0 border=1>
-            <tr>
-            <%--
-            // 평가번호, 교육기관, 교육기간, 평가일시, 과정명, 평과목, 평가자, 능력단위명, 능력단위 요소
-			// no, institute, time, date, course, subject, appraiser, abilityUnit, element
-             --%>
-                <th id="cul">교육기관</th>
-                <th style="width: 170px;">${evaluation.institute }</th>
-                <th id="cul">교육기간</th>
-                <th colspan="3">${evaluation.time }</th>
-            </tr>
-            <tr>
-                <th id="cul">평가일시</th>
-                <th>${evaluation.date }</th>
-                <th id="cul">과정명</th>
-                <th>${evaluation.course } </th>
-                <th id="cul">학생명</th>
-                <th style="width: 130px;"> </th>
-            </tr>
-            <tr>
-                <th id="cul">교과목</th>
-                <th colspan="3">${evaluation.subject }</th>
-                <th id="cul">평가자</th>
-                <th>${evaluation.appraiser }</th>
-            </tr>
-            <tr>
-                <th id="cul">능력단위명</th>
-                <th colspan="5">${evaluation.abilityUnit }</th>
-            </tr>
-            <tr>
-                <th id="cul">능력단위요소</th>
-                <th colspan="5">${evaluation.element }</th>
-            </tr>
-        </table>
-        <br>
-        <table cellspacing=0 border=1>
-            <tr>
-                <th id="cul2" style="width:100px;">진단영역</th>
-                <th style="width:640px;">진 단 문 항</th>
-                <th>매우<br>미흡</th>
-                <th>미흡</th>
-                <th>보통</th>
-                <th>우수</th>
-                <th>매우<br>우수</th>
-            </tr>
- 
-            
-            <tr>
-                <th rowspan="4"></th>
-               	<th></th>
-                <th><input type="radio" name="1"></th>
-                <th><input type="radio" name="1"></th>
-                <th><input type="radio" name="1"></th>
-                <th><input type="radio" name="1"></th>
-                <th><input type="radio" name="1"></th>
-            </tr>
-        </table>
-        	<br>
-        	<input type="submit" value="확인"/>
-        	<input type="reset" value="다시작성"/>
-       </form>
     </div>
 </body>
 </html>
