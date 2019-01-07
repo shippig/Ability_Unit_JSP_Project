@@ -72,13 +72,9 @@ table td{text-align:center}
                 <th class="diag">우수</th>
                 <th class="diag">매우<br>우수</th>
             </tr>
-            
-            <%-- >>>> 시작  --%>
             <c:forEach var="domain" items="${domainList }">
-            
-            <%-- >>>> (1)  --%>
-            	<c:if test="${domain.getDomain() eq '스마트 웹 개발' }">
-            		<c:forEach var="i" begin="0" end="${questionList1.size()-1 }" step="1" varStatus="status">
+            	
+            	<c:forEach var="i" begin="0" end="${questionList1.size()-1 }" step="1" varStatus="status">
             <%--4번 반복하는대 0일 때에는  --%>
             	<c:choose>
             		<c:when test="${status.index eq 0 }">
@@ -103,37 +99,10 @@ table td{text-align:center}
             		</c:otherwise>
            		</c:choose>
             	</c:forEach>
-            	</c:if>
+            	<tr>
             	
-            	<%-- >>>> (2)  --%>
-            	<c:if test="${domain.getDomain() eq '스마트 앱 개발' }">
-            	<c:forEach var="i" begin="0" end="${questionList2.size()-1 }" step="1" varStatus="status">
-            <%--4번 반복하는대 0일 때에는  --%>
-            	<c:choose>
-            		<c:when test="${status.index eq 0 }">
-	            		<tr>
-	            			<th rowspan="${questionList2.size() }" class="title">${domain.getDomain() }</th> 
-	            			<th class="question">${questionList2.get(status.index) }</th>
-	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            			<%--name 1.1부분을 변수로 수정해야함. --%>
-	            				<th class="score"><input type="radio" name="1.1"></th>
-	            			</c:forEach>
-	            		</tr>
-            		</c:when>
-            		<%-- 1, 2, 3일 때에는 --%>
-            		<c:otherwise>
-            			<tr>
-            				<th class="question">${questionList2.get(status.index) }</th>
-            				<c:forEach var="j" begin="1" end="5" step="1">
-            				<%--name 1.2부분을 변수로 수정해야함. --%>
-            					<th class="score"><input type="radio" name="1.2"></th>
-            				</c:forEach>
-            			</tr>
-            		</c:otherwise>
-           		</c:choose>
-            	</c:forEach>
-            	</c:if>
-           </c:forEach>	
+            	</tr>
+	        </c:forEach>
         </table>
     </div>
 </body>

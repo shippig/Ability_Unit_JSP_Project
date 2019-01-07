@@ -63,7 +63,7 @@ public class ApplicationCommand implements ECommand
 		request.setAttribute("questionList1", questionList1);
 		request.setAttribute("questionList2", questionList2);
 		request.setAttribute("questionList3", questionList3);
-		request.setAttribute("questionList4", questionList4);
+		request.setAttribute("questionList4", questionList4);	
 	}
 
 	@Override
