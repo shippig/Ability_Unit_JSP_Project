@@ -10,12 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.human.command.AResultCommand;
 import com.human.command.ApplicationCommand;
 import com.human.command.Command;
 import com.human.command.ECommand;
 import com.human.command.LoginCommand;
-import com.human.command.RegisterCommand;
+import com.human.command.SResultCommand;
 import com.human.command.SWACommand;
+import com.human.command.SignInCommand;
 import com.human.dao.EvaluationDAO;
 import com.human.dao.StudentDAO;
 
@@ -92,13 +94,20 @@ public class FrontController extends HttpServlet {
 				break;
 			
 			case "POST":
-				if(command.equals("/Application.do.do"))
+				if(command.equals("/Application.do"))
 				{
-					
+					BCommand = new AResultCommand();
+					BCommand.execute(request, response);
+					path = "Evaluation/index.jsp";
 				}
 				else if(command.equals("/SmartWeb&Apps.do"))
 				{
+					BCommand = new SResultCommand();
+					BCommand.execute(request, response);
+					path = "Evaluation/index.jsp";
 					
+					HttpSession session = request.getSession();
+					session.setMaxInactiveInterval(-1);
 				}
 				else if(command.equals("/login.do"))
 				{
@@ -128,7 +137,7 @@ public class FrontController extends HttpServlet {
 				}
 				else if(command.equals("/register.do"))
 				{
-					BCommand = new RegisterCommand();
+					BCommand = new SignInCommand();
 					BCommand.execute(request, response);
 					path = "Evaluation/login.jsp";
 				}

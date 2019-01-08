@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.human.dao.StudentDAO;
 import com.human.dto.StudentDTO;
 
-public class RegisterCommand implements Command
+public class SignInCommand implements Command
 {
 
 	@Override

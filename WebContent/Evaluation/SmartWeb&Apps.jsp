@@ -86,10 +86,10 @@ table td{text-align:center}
 	            			<th rowspan="${questionList1.size() }" class="title">${domain.getDomain() }</th> 
 	            			<th class="question">${questionList1.get(status.index) }</th>
 	            			
-	            			<%-- name 값 설정 --%>
+	            			<%-- name 값 설정 이곳은 "1"임.--%>
 	            			 <c:set var="index" value="1"></c:set>
-	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            				<th class="score"><input type="radio" name="${index }"></th>
+	            			<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+	            				<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
 	            			</c:forEach>
 	            		</tr>
             		</c:when>
@@ -98,9 +98,9 @@ table td{text-align:center}
             			<tr>
             				<th class="question">${questionList1.get(status.index) }</th>
             				<c:set var="index" value="${index + 1 }"></c:set>
-            				<c:forEach var="j" begin="1" end="5" step="1">
-            				<%--name 1.2부분을 변수로 수정해야함. --%>
-            					<th class="score"><input type="radio" name="${index }"></th>
+            				<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+            				<%-- name 값 설정 이곳은 "2,3,4"임.--%>
+            					<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
             				</c:forEach>
             				<c:set var="index" value="${index + 1 }"></c:set>
             			</tr>
@@ -119,8 +119,9 @@ table td{text-align:center}
 	            			<th rowspan="${questionList2.size() }" class="title">${domain.getDomain() }</th> 
 	            			<th class="question">${questionList2.get(status.index) }</th>
 	            			<c:set var="index" value="${index + 1 }"></c:set>
-	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            				<th class="score"><input type="radio" name="${index }"></th>
+	            			<%-- name 값 설정 이곳은 "5"임.--%>
+	            			<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+	            				<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
 	            			</c:forEach>
 	            		</tr>
 	            		<c:set var="index" value="${index + 1 }"></c:set>
@@ -130,9 +131,9 @@ table td{text-align:center}
             			<tr>
             				<th class="question">${questionList2.get(status.index) }</th>
             				<c:set var="index" value="${index + 1 }"></c:set>
-            				<c:forEach var="j" begin="1" end="5" step="1">
-            				<%--name 1.2부분을 변수로 수정해야함. --%>
-            					<th class="score"><input type="radio" name="${index }"></th>
+            				<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+            				<%-- name 값 설정 이곳은 "6,7,8"임.--%>
+            					<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
             				</c:forEach>
             			</tr>
             			<c:set var="index" value="${index + 1 }"></c:set>

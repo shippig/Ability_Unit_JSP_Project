@@ -18,6 +18,8 @@ table td{text-align:center}
 .evaluation_domain .question{border-bottom:dashed 1px;}
 .evaluation_domain .score{border-bottom:dashed 1px;}
 .evaluation_domain .title{padding-top:30px; padding-bottom:30px;}
+#controlForm {margin:30px 0px auto auto;}
+#controlForm .frmStyle {width:32.5%; padding:500px;}
 </style>
 </head>
 <body>
@@ -61,6 +63,7 @@ table td{text-align:center}
         </table><br>
         
         <!-- Evaluation Domain(평가지 진단영역)-->
+   		<form method="post" action="Application.do" name="frm">
         <table border='1' class="evaluation_domain">
             <tr>
                 <th class="domain" style="width:7.5%;">진단영역</th>
@@ -71,6 +74,7 @@ table td{text-align:center}
                 <th class="diag">우수</th>
                 <th class="diag">매우<br>우수</th>
             </tr>
+            
             
             <%-- >>>> 시작  --%>
             <c:forEach var="domain" items="${domainList }">
@@ -203,6 +207,14 @@ table td{text-align:center}
             	</c:if>
 	        </c:forEach>	
         </table>
+        <div id="controlForm">
+        	<input class="frmStyle" type="submit" value="작성완료"/> 
+        	<input class="frmStyle" type="reset" value="다시작성" /> 
+        	<input class="frmStyle" type="button" value="뒤로가기" onclick="window.history.go(-1)"/>
+        </div>
+        </form>
+        
+        
     </div>
 </body>
 </html>
