@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,8 +75,7 @@ table td{text-align:center}
                 <th class="diag">우수</th>
                 <th class="diag">매우<br>우수</th>
             </tr>
-            
-            
+
             <%-- >>>> 시작  --%>
             <c:forEach var="domain" items="${domainList }">
             
@@ -89,9 +89,9 @@ table td{text-align:center}
 	            			<th rowspan="${questionList1.size() }" class="title">${domain.getDomain() }</th> 
 	            			<th class="question">${questionList1.get(status.index) }</th>
 
-	            			<c:forEach var="j" begin="1" end="5" step="1">
+	            			<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
 	            			<c:set var="index" value="1"></c:set>
-	            				<th class="score"><input type="radio" name="${index }"></th>
+	            				<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
 	            			</c:forEach>
 	            			<c:set var="index" value="${index + 1 }"></c:set>
 	            		</tr>
@@ -101,8 +101,8 @@ table td{text-align:center}
             			<tr>
             				<th class="question">${questionList1.get(status.index) }</th>
             				<c:set var="index" value="${index + 1 }"></c:set>
-            				<c:forEach var="j" begin="1" end="5" step="1">
-            					<th class="score"><input type="radio" name="${index }"></th>
+            				<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+            					<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
             				</c:forEach>
             			</tr>
             			<c:set var="index" value="${index + 1 }"></c:set>
@@ -122,8 +122,8 @@ table td{text-align:center}
 	            			<th class="question">${questionList2.get(status.index) }</th>
 	            			
 	            			<c:set var="index" value="${index + 1 }"></c:set>
-	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            				<th class="score"><input type="radio" name="${index }"></th>
+	            			<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+	            				<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
 	            			</c:forEach>
 	            		</tr>
 	            			<c:set var="index" value="${index + 1 }"></c:set>
@@ -133,8 +133,8 @@ table td{text-align:center}
             			<tr>
             				<th class="question">${questionList2.get(status.index) }</th>
             				<c:set var="index" value="${index + 1 }"></c:set>
-            				<c:forEach var="j" begin="1" end="5" step="1">
-            					<th class="score"><input type="radio" name="${index }"></th>
+            				<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+            					<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
             				</c:forEach>
             			</tr>
             			<c:set var="index" value="${index + 1 }"></c:set>
@@ -153,8 +153,8 @@ table td{text-align:center}
 	            			<th rowspan="${questionList3.size() }" class="title">${domain.getDomain() }</th> 
 	            			<th class="question">${questionList3.get(status.index) }</th>
 	            			<c:set var="index" value="${index + 1 }"></c:set>
-	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            				<th class="score"><input type="radio" name="${index }"></th>
+	            			<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+	            				<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
 	            			</c:forEach>
 	            		</tr>
 	            		<c:set var="index" value="${index + 1 }"></c:set>
@@ -164,8 +164,8 @@ table td{text-align:center}
             			<tr>
             				<th class="question">${questionList3.get(status.index) }</th>
             				<c:set var="index" value="${index + 1 }"></c:set>
-            				<c:forEach var="j" begin="1" end="5" step="1">
-            					<th class="score"><input type="radio" name="${index }"></th>
+            				<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+            					<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
             				</c:forEach>
             			</tr>
             			<c:set var="index" value="${index + 1 }"></c:set>
@@ -185,8 +185,8 @@ table td{text-align:center}
 	            			<th rowspan="${questionList4.size() }" class="title">${domain.getDomain() }</th> 
 	            			<th class="question">${questionList4.get(status.index) }</th>
 	            			<c:set var="index" value="${index + 1 }"></c:set>
-	            			<c:forEach var="j" begin="1" end="5" step="1">
-	            				<th class="score"><input type="radio" name="${index }"></th>
+	            			<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+	            				<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
 	            			</c:forEach>
 	            		</tr>
 	            		<c:set var="index" value="${index + 1 }"></c:set>
@@ -196,8 +196,8 @@ table td{text-align:center}
             			<tr>
             				<th class="question">${questionList4.get(status.index) }</th>
             				<c:set var="index" value="${index + 1 }"></c:set>
-            				<c:forEach var="j" begin="1" end="5" step="1">
-            					<th class="score"><input type="radio" name="${index }"></th>
+            				<c:forEach var="j" begin="1" end="5" step="1" varStatus="status">
+            					<th class="score"><input type="radio" value="${status.index }" name="${index }"></th>
             				</c:forEach>
             			</tr>
             			<c:set var="index" value="${index + 1 }"></c:set>

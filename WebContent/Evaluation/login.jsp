@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%! String ses = ""; %>
+<%
+	// 로그인 세션이 남아있다면 로그아웃하거나 세션 유효기가진이 끝나기전까지 로그인을 유지한다.
+	if((String)session.getAttribute("id") != null)
+	{
+		response.sendRedirect("index.do");
+	}
+	else ses = (String)session.getAttribute("id");
+%>
 <!DOCTYPE html>
 <html>
 <head>

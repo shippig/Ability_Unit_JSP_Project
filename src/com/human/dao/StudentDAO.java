@@ -28,11 +28,6 @@ public class StudentDAO
 		return instance;
 	}
 	
-	public void isStudent(String id)
-	{
-		
-	}
-	
 	public String getStudentName(String id)
 	{
 		final String QUERY = "SELECT 학생이름, 학생번호 FROM 학생 WHERE 학생ID = ?";

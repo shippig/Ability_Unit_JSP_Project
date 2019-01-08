@@ -15,6 +15,7 @@ import com.human.command.ApplicationCommand;
 import com.human.command.Command;
 import com.human.command.ECommand;
 import com.human.command.LoginCommand;
+import com.human.command.LogoutCommand;
 import com.human.command.SResultCommand;
 import com.human.command.SWACommand;
 import com.human.command.SignInCommand;
@@ -91,6 +92,24 @@ public class FrontController extends HttpServlet {
 				{
 					path = "Evaluation/register.jsp";
 				}
+				else if(command.equals("/index.do"))
+				{
+					path = "Evaluation/index.jsp";
+				}
+				else if(command.equals("/logout.do"))
+				{
+					BCommand = new LogoutCommand();
+					BCommand.execute(request, response);
+					path = "Evaluation/login.jsp";
+				}
+				else if(command.equals("/AResult.do"))
+				{
+					path = "Evaluation/AResult.jsp";
+				}
+				else if(command.equals("/SResult.do"))
+				{
+					path = "Evaluation/SResult.jsp";
+				}
 				break;
 			
 			case "POST":
@@ -98,16 +117,13 @@ public class FrontController extends HttpServlet {
 				{
 					BCommand = new AResultCommand();
 					BCommand.execute(request, response);
-					path = "Evaluation/index.jsp";
+					path = "Evaluation/AResult.jsp";
 				}
 				else if(command.equals("/SmartWeb&Apps.do"))
 				{
 					BCommand = new SResultCommand();
 					BCommand.execute(request, response);
-					path = "Evaluation/index.jsp";
-					
-					HttpSession session = request.getSession();
-					session.setMaxInactiveInterval(-1);
+					path = "Evaluation/SResult.jsp";
 				}
 				else if(command.equals("/login.do"))
 				{

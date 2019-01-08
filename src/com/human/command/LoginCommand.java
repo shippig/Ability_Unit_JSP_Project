@@ -25,6 +25,7 @@ public class LoginCommand implements Command
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("id", id);
+		session.setMaxInactiveInterval(3600);
 		flag = sDAO.login(id, pwd);
 	}
 	
